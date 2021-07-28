@@ -1,6 +1,8 @@
 #These defines are needed because CentOS5 uses a old version of autoconf
 #
-AC_DEFUN([AC_TYPE_INT8_T], [_AC_TYPE_INT(8)])
+
+
+AC_DEFUN([AC_TYPE_INT8_T], [_AC_TYPE_INT(8)]) # DEFUN 是 de-fun define function 定义【function-like-macro】AC 是 autoconfig
 AC_DEFUN([AC_TYPE_INT16_T], [_AC_TYPE_INT(16)])
 AC_DEFUN([AC_TYPE_INT32_T], [_AC_TYPE_INT(32)])
 AC_DEFUN([AC_TYPE_INT64_T], [_AC_TYPE_INT(64)])
