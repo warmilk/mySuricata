@@ -6,16 +6,42 @@
 #
 # For the settings available in the latest clang release, see
 #   https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+# 根据 Suricata 的配置文件（如下）
+# doc/devguide/codebase/code-style.rst
+#【reStructuredText（RST、ReST或reST）是一种用于文本数据的文件格式，主要用于 Python 编程语言社区的技术文档。
+#它是Python Doc-SIG（Documentation Special Interest Group）的 Docutils 项目的一部分，旨在为 Python 创建一组类似于 Java 的 Javadoc 或 Perl 的 Plain Old Documentation（pod）的工具。Docutils 可以从 Python 程序中提取注释和信息，并将它们格式化为各种形式的程序文档。
+#从这个意义上说，reStructuredText 是一种轻量级标记语言，其设计目的是（a）文档处理软件（如Docutils）可以处理它，（b）读和写 Python 源代码的程序员很容易读它。早期的轻量级标记语言 StructuredText存在许多问题，reST 就是为了解决这些问题而开发的。选择了 reStructuredText 这个名称是为了表明 reST 是一个“经过修改、重写和重新解释的结构化文本”】
+#
+# 这个文件是为clang 9设置的。可用的设置见
+# https://releases.llvm.org/9.0.0/tools/clang/docs/ClangFormatStyleOptions.html
+#
+# 有关最新 clang 版本中可用的设置，请参阅
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+---
+---
+### BasedOnStyle ###
+# 用于未在配置中专门设置的所有选项的样式。
+#此选项仅在 clang-format 配置中受支持（在 -style='{...}' 和 .clang-format 文件中）。
+#可能的值：
+#LLVM 一种符合 LLVM 编码标准的风格（LLVM是一套编译器基础设施项目，包含一系列模块化的编译器组件和工具链，它们专门用于开发编译器）
+#Google 一种符合 Google C++ 风格指南的风格
+#Chromium 符合 Chromium 风格指南的风格
+#Mozilla 符合 Mozilla 风格指南的风格
+#WebKit 符合 WebKit 风格指南的风格
+#Microsoft 符合 Microsoft 风格指南的风格
+#GNU 一种符合 GNU 编码标准的风格
 ---
 BasedOnStyle: LLVM
-AlignAfterOpenBracket: DontAlign
-AlignConsecutiveMacros: true
-AlignEscapedNewlines: Right
+AlignAfterOpenBracket: DontAlign # bracket 括号
+AlignConsecutiveMacros: true # con-se-cu-tive 连续的
+AlignEscapedNewlines: Right #用于在转义换行符中对齐反斜杠 Escaped转义符
 # clang 10: AllowShortBlocksOnASingleLine: Never
 # clang 11: AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 # BreakBeforeBraces: Mozilla is closest, but does not split empty functions/structs
-BraceWrapping:
+BraceWrapping: #brace(curly brace) 大括弧、大括号 花括弧、花括号
   AfterClass:      true
   AfterControlStatement: false
   AfterEnum:       false
